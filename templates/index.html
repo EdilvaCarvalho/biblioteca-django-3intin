@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>Biblioteca</title>
+{% endblock %}
+{% block conteudo %}
+    {% include 'partils/_alertas.html' %}
+    <div class="page-header text-center py-3">
+        <h1>Livros</h1>
+        <hr>
+    </div>
+    <div class="row">
+        {% for livro in object_list %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <a href="#">
+                {% if livro.capa == '' %}
+                    <img src="{% static 'img/livro.png' %}" class="card-img-top" alt="...">
+                {% else %}
+                    <img src="{{ livro.capa.url }}" class="card-img-top" alt="...">
+                {% endif %}
+                </a>
+                <div class="card-body">
+                    <a href="#" class="text-decoration-none text-reset"><h5 class="card-title">{{ livro.titulo }}</h5></a>
+                    <p>Autor(es): </p>
+                    {% for autor in livro.autor.all %}
+                        <p class="card-text"> {{ autor.nome }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Nenhum livro registrado.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
