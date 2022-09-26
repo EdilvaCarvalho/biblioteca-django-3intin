@@ -3,3 +3,8 @@ __pycache__/
 
 #PyCharm
 .idea
+
+.env
+
+uploads/capas/*
+uploads/livros/*
