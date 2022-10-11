@@ -47,9 +47,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Meus dados</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-lock"></i> Alterar senha</a></li>
+                      <li><a class="dropdown-item" href="{% url 'password' %}"><i class="bi bi-lock"></i> Alterar senha</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
                     </ul>
                   </li>
                   {% else %}
