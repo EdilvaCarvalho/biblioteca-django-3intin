@@ -30,7 +30,7 @@
                     <a class="nav-link" href="#"><i class="bi bi-person"></i> Autores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-journal-text"></i> Editoras</a>
+                    <a class="nav-link" href="{% url 'listar_editoras' %}"><i class="bi bi-journal-text"></i> Editoras</a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
@@ -46,7 +46,7 @@
                       <i class="bi bi-person-circle"></i> {{ request.user.first_name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Meus dados</a></li>
+                      <li><a class="dropdown-item" href="{% url 'detalhar_usuario' %}"><i class="bi bi-person"></i> Meus dados</a></li>
                       <li><a class="dropdown-item" href="{% url 'password' %}"><i class="bi bi-lock"></i> Alterar senha</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i> Sair</a></li>

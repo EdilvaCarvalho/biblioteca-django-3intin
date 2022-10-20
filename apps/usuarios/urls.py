@@ -7,4 +7,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('password/', PasswordChangeView.as_view(template_name='cadastros/mudar-senha.html'), name='password'),
     path('criar/usuario/', UsuarioCreate.as_view(), name='criar_usuario'),
+    path('editar/usuario/', UsuarioUpdate.as_view(), name='editar_usuario'),
+    path('detalhar/usuario/', UsuarioDetail.as_view(), name='detalhar_usuario'),
 ]

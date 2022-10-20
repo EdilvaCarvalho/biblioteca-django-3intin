@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
@@ -27,7 +28,7 @@ class UsuarioUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class = UsuarioForm
     success_message = 'Usuário atualizado com sucesso!'
     template_name = "cadastros/form.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("detalhar_usuario")
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -42,6 +43,14 @@ class UsuarioUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def form_valid(self, form):
         url = super().form_valid(form)
         return url
+
+class UsuarioDetail(LoginRequiredMixin, DetailView):
+    login_url = reverse_lazy('login')
+    model = User
+    template_name = "cadastros/detalhes/usuario.html"
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 class PasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
     login_url = reverse_lazy('login')
